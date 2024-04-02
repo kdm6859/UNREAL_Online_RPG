@@ -21,10 +21,14 @@ void APotionSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UNetwork_Manager_R* NetworkManager = Cast<UNetwork_Manager_R>(GetGameInstance());
-	const AItemManager* ItemManager = NetworkManager->GetItemManager();
+	if (HasAuthority())
+	{
+		UNetwork_Manager_R* NetworkManager = Cast<UNetwork_Manager_R>(GetGameInstance());
+		const AItemManager* ItemManager = NetworkManager->GetItemManager();
 
-	UItemBase* ItemBase = ItemManager->MakeItemBaseByKey(this,4,10);
-	ItemManager->SpawnItem(this,ItemBase,GetActorTransform(),3000);
+		UItemBase* ItemBase = ItemManager->MakeItemBaseByKey(this,4,10);
+		ItemManager->SpawnItem(this,ItemBase,GetActorTransform(),3000);
+	}
+
 
 }

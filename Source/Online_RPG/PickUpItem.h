@@ -56,13 +56,21 @@ public:
 	void RPC_Set_Quantity(int32 _Quantity);
 
 	UFUNCTION()
-	void OnRep_InstanceItemQuantity() {
+	void OnRep_InstanceItemQuantity()
+	{
 		//UE_LOG(LogTemp, Log, TEXT("OnRep_InstanceItemQuantity ...%d "), InstanceItemQuantity);
 		UE_LOG(LogTemp,Warning,TEXT("범인"))
 		SetAllQuantity(InstanceItemQuantity);
 	}
 
-		
+	//////////////////////////////////////////
+	UPROPERTY(ReplicatedUsing = OnRep_SetItemBase)
+	int32 ItemBase_Key = 1;
+
+	UFUNCTION()
+	void OnRep_SetItemBase();
+
+	//////////////////////////////////////////
 	void SetAllQuantity(int32 ChangeValue);
 	
 	// Server RPC �Լ� ����

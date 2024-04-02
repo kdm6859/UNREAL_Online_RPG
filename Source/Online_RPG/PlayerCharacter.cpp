@@ -143,12 +143,12 @@ void APlayerCharacter::Interact()
 
 	UE_LOG(LogTemp, Warning, TEXT("인트8 %d"), IsQuestAccept)
 
-		if (InteractionTarget->InteractionData.InteractionType == EInteractionType::NPC)
-		{
-			HUD->CloseInteractionWidget();
-			HUD->OpenConversationWidget(InteractionTarget->GetFBum());
-			return;
-		}
+	if (InteractionTarget->InteractionData.InteractionType == EInteractionType::NPC)
+	{
+		HUD->CloseInteractionWidget();
+		HUD->OpenConversationWidget(InteractionTarget->GetFBum());
+		return;
+	}
 
 	APickUpItem* Tem = Cast<APickUpItem>(InteractionTarget.GetObject());
 	Tem->SetOwner(this);

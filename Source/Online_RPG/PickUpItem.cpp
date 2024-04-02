@@ -156,9 +156,21 @@ void APickUpItem::RPC_Set_Quantity_Implementation(int32 _Quantity)
 	SetAllQuantity(_Quantity);
 }
 
+void APickUpItem::OnRep_SetItemBase()
+{
+	FString RealKey = FString::Printf(TEXT("%d"),ItemBase_Key);
+		
+	UNetwork_Manager_R* Manager = Cast<UNetwork_Manager_R>(GetGameInstance());
+	const AItemManager* ItemManager = Manager->GetItemManager();
+	InstanceItemData = ItemManager->MakeItemBaseByKey(this,RealKey,1);
+
+	InitializeDropItem_Implementation(ItemBase_Key,InstanceItemQuantity);
+	UE_LOG(LogTemp,Warning,TEXT("아이템베이스 셋 완료"))
+}
+
 void APickUpItem::SetAllQuantity(int32 ChangeValue)
 {
-
+	
 	//UE_LOG(LogTemp, Display, TEXT("SetAllQuantity ... %d"), ChangeValue);
 	InstanceItemInteractData.Quantity = ChangeValue;
 	InteractionData = InstanceItemInteractData;
@@ -167,14 +179,20 @@ void APickUpItem::SetAllQuantity(int32 ChangeValue)
 	if (InstanceItemData)
 	{
 		InstanceItemData->SetQuantity(ChangeValue);
+		UE_LOG(LogTemp,Warning,TEXT("서버 셋퀀티티"))
 	}
 	else
 	{
-		UE_LOG(LogTemp,Warning,TEXT("실패"))
+		if (HasAuthority())
+		{
+			UE_LOG(LogTemp,Warning,TEXT("서버 리턴"))
+		}
+		else
+		{
+			UE_LOG(LogTemp,Warning,TEXT("클라 리턴"))
+		}
+		
 		return;
-		/*UNetwork_Manager_R* Manager = Cast<UNetwork_Manager_R>(GetGameInstance());
-		AItemManager* ItemManager = Manager->GetItemManager();
-		InstanceItemData = ItemManager->MakeItemBaseByKey(this,InstanceItemID,ChangeValue);*/
 	}
 
 	if (!GetWorld() || !GetWorld()->GetFirstPlayerController() || !GetWorld()->GetFirstPlayerController()->GetPawn()) return;
@@ -221,7 +239,7 @@ void APickUpItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
 	DOREPLIFETIME(APickUpItem, a);
 	DOREPLIFETIME(APickUpItem, ReplicatedOwner);
 	DOREPLIFETIME(APickUpItem, InstanceItemQuantity);
-
+	DOREPLIFETIME(APickUpItem, ItemBase_Key);
 }
 
 void APickUpItem::BeginFocus()
@@ -321,6 +339,7 @@ void APickUpItem::PickUpItem(const APlayerCharacter* Taker)
 
 void APickUpItem::InitializeDropItem_Implementation(int32 ItemToDrop, const int32 Quantity)
 {
+	ItemBase_Key = ItemToDrop;
 	const AItemManager* ItemManager = Cast<UNetwork_Manager_R>(GetGameInstance())->GetItemManager();
 
 	UItemBase* Base = ItemManager->MakeItemBaseByKey(this, ItemToDrop, Quantity);
