@@ -24,10 +24,12 @@ https://youtu.be/E_dTuCVt-Ik
   
     ![회원가입장면](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/dd135b7b-ef3b-4212-8fe5-e0ba93d5c6ce)
 
+
     
 - Firebase에 저장된 데이터 비교 후 로그인
   
     ![로그인장면](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/78f3a902-0bb4-4d9f-bc5c-a7a0b7c3af7f)
+
 
   
 
@@ -38,10 +40,12 @@ https://youtu.be/E_dTuCVt-Ik
 ![image](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/9dcefce6-fead-41ba-b158-e17538bdb749)
 
 
+
 - 캐릭터 이동, 공격, 스킬 등 기능 구현
 - 땅, 풀숲, 물가에서 서로 다른 걷기 사운드 출력
   
 ![캐릭터기본조작](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/4d2b2a6c-5db3-4e97-81ed-e665dbeeaddf)
+
 
 
 - 인벤토리 기능 구현
@@ -49,6 +53,7 @@ https://youtu.be/E_dTuCVt-Ik
 - Firebasefh 플레이어의 인벤토리 정보 관리
   
 ![image](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/414768f6-e5a7-4582-9a77-be1f2d0b1326) ![언리얼온라인3](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/d39a21e7-2fc2-4237-adbe-56b9c4a46067)  ![언리얼온라인4](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/257e845d-2690-4b80-99e7-4c99e43302ee)
+
 
 
 
@@ -62,6 +67,7 @@ https://youtu.be/E_dTuCVt-Ik
 
 
 
+
 ### 4. Unreal Network를 이용한 서버, 클라이언트 동기화
 
 - 캐릭터, 몬스터, 아이템 등 오브젝트 동기화
@@ -71,9 +77,11 @@ https://youtu.be/E_dTuCVt-Ik
 
 
 
+
 ### 5. NPC 기능 구현
 
 - NPC 및 퀘스트 구현
 - 퀘스트 조건 달성 시 보상 획득
   
 ![NPC퀘스트](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/805ff674-8a18-47ab-a3be-662df5f9fba2)
+
