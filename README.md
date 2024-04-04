@@ -50,9 +50,14 @@ https://youtu.be/E_dTuCVt-Ik
 
 - 인벤토리 기능 구현
 - 언리얼 데이터 테이블로 아이템 정보 관리
+
+  ![image](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/1b168b3d-b5ab-4dc6-8867-53234e2cea16)
+
+
+
 - Firebasefh 플레이어의 인벤토리 정보 관리
   
-![image](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/414768f6-e5a7-4582-9a77-be1f2d0b1326) ![언리얼온라인3](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/d39a21e7-2fc2-4237-adbe-56b9c4a46067)  ![언리얼온라인4](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/257e845d-2690-4b80-99e7-4c99e43302ee)
+![image](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/4fe29c7f-3a34-455f-9326-4afdbebf6948) ![언리얼온라인3](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/d39a21e7-2fc2-4237-adbe-56b9c4a46067)  ![언리얼온라인4](https://github.com/kdm6859/UNREAL_Online_RPG/assets/64892955/257e845d-2690-4b80-99e7-4c99e43302ee)
 
 
 
